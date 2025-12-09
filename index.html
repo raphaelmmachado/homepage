@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Sua página inicial personalizada com categorias e favoritos."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='white' stroke='%23000' stroke-width='0.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l-2 0l9 -9l9 9l-2 0'/%3E%3Cpath d='M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7'/%3E%3Cpath d='M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6'/%3E%3C/svg%3E"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet"
+        type="text/css"
+      />
+    </noscript>
+
+    <script type="module" crossorigin src="/assets/index-Bvdkidce.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Tr1EAjwK.css">
+  </head>
+  <body
+    class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 flex flex-col min-h-screen transition-colors duration-300"
+  >
+    <nav
+      class="sticky top-0 z-10 py-4 bg-gray-100/80 dark:bg-gray-900/80 backdrop-blur-sm"
+    >
+      <div class="mx-auto flex justify-center gap-4 px-4">
+        <button
+          id="theme-toggle-btn"
+          aria-label="theme-toggle"
+          title="Alterar Tema"
+          data-class="nav-buttons"
+          class="animate-pulse hidden invisible sm:block text-amber-400 dark:text-gray-300 bg-amber-200 hover:bg-amber-300 dark:bg-gray-600 dark:hover:bg-gray-700 p-3 rounded-full"
+        >
+          <span id="theme-icon-sun"></span>
+          <span id="theme-icon-moon"></span>
+        </button>
+
+        <button
+          id="layout-toggle-btn"
+          title="Alterar Layout"
+          aria-label="layout-toggle"
+          data-class="nav-buttons"
+          class="hidden invisible sm:block text-gray-600 bg-white hover:bg-white/70 dark:text-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 shadow-sm p-3 rounded-full"
+        >
+          <span id="layout-icon-grid"></span>
+          <span id="layout-icon-list"></span>
+        </button>
+        <form
+          id="web-search-form"
+          class="relative flex items-center w-full max-w-3xl bg-white dark:bg-gray-800 rounded-full shadow-md border border-gray-200 dark:border-gray-700 transition-shadow focus-within:ring-2 focus-within:ring-blue-500"
+        >
+          <div class="relative">
+            <button
+              type="button"
+              aria-label="engine-selector"
+              id="engine-selector-btn"
+              class="p-3 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full"
+            >
+              <!-- Ícone do mecanismo de busca será inserido aqui -->
+            </button>
+            <div
+              id="engine-options"
+              class="absolute top-full mt-2 left-0 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 hidden"
+            >
+              <!-- Opções de mecanismo de busca serão inseridas aqui -->
+            </div>
+          </div>
+          <input
+            type="search"
+            id="web-search-bar"
+            autocomplete="off"
+            class="w-full bg-transparent pl-2 pr-12 py-2 text-gray-800 dark:text-gray-200 focus:outline-none"
+          />
+          <button
+            id="web-search-submit-btn"
+            aria-label="web-search-submit"
+            type="submit"
+            class="absolute right-0 top-0 h-full px-4 text-gray-500 hover:text-blue-600"
+          >
+            <span id="search-icon"></span>
+          </button>
+        </form>
+        <!-- Dropdown para Mobile (visível apenas em telas pequenas) -->
+        <div class="relative sm:hidden">
+          <button
+            id="mobile-menu-btn"
+            aria-label="mobile-menu"
+            title="Mais opções"
+            class="text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 p-3 rounded-full"
+          >
+            <span id="mobile-menu-icon"></span>
+          </button>
+          <div
+            id="mobile-menu-dropdown"
+            class="border border-gray-700 hidden absolute right-0 mt-2 w-56 origin-top-right bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-20"
+          >
+            <div id="mobile-menu-items" class="py-1" role="menu">
+              <!-- Itens do menu serão injetados aqui via JavaScript -->
+            </div>
+          </div>
+        </div>
+        <button
+          id="import-btn"
+          aria-label="import-bookmarks"
+          title="Importar Favoritos"
+          data-class="nav-buttons"
+          class="hidden invisible sm:block group text-gray-600 bg-white hover:bg-white/70 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-300 p-3 shadow-sm rounded-full"
+        >
+          <span id="import-icon"></span>
+        </button>
+        <button
+          id="export-btn"
+          aria-label="export-bookmarks"
+          title="Exportar Favoritos"
+          data-class="nav-buttons"
+          class="hidden invisible sm:block group text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-800 dark:hover:bg-gray-700 hover:bg-white/70 p-3 shadow-sm rounded-full"
+        >
+          <span id="export-icon"></span>
+        </button>
+
+        <input
+          type="file"
+          id="import-file-input"
+          class="hidden"
+          accept=".json"
+        />
+      </div>
+    </nav>
+
+    <div
+      id="search-results-wrapper"
+      class="container mx-auto p-4 md:px-8 max-w-xl grow hidden"
+    >
+      <!-- resultados serao exibidos aqui pelo script -->
+    </div>
+
+    <section id="app" class="container mx-auto p-4 md:p-8 max-w-7xl grow">
+      <div id="containers-wrapper" class="flex gap-6 justify-start">
+        <!-- As categorias e o botão de adicionar serão inseridos aqui -->
+      </div>
+      <!-- Added articles wrapper section for read later feature -->
+      <div id="articles-section" class="">
+        <!-- Added article input form at bottom of page -->
+        <div class="rounded-lg my-6">
+          <form id="article-form" class="flex gap-3 flex-wrap">
+            <input
+              type="url"
+              data-role="change text"
+              id="article-url-input"
+              placeholder="Adicione artigos colando o URL do artigo aqui..."
+              required
+              class="flex-1 px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 dark:text-gray-200"
+            />
+            <button
+              type="submit"
+              aria-label="save-article"
+              class="bg-gray-600 text-white px-6 py-2 rounded-md hover:bg-gray-700 transition-colors font-medium"
+            >
+              Salvar Artigo
+            </button>
+          </form>
+        </div>
+        <div class="">
+          <div
+            id="articles-wrapper"
+            class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6"
+          >
+            <!-- Articles will be inserted here -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal para adicionar/editar favorito -->
+    <div
+      id="bookmark-dialog"
+      class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 hidden"
+    >
+      <div
+        class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md mx-4"
+      >
+        <h3 id="dialog-title" class="text-xl font-semibold mb-4">
+          Adicionar Novo Favorito
+        </h3>
+        <form id="bookmark-form">
+          <input type="hidden" id="bookmark-id" />
+          <div class="mb-4">
+            <label
+              for="bookmark-name"
+              class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+              >Nome do Site</label
+            >
+            <input
+              type="text"
+              id="bookmark-name"
+              required
+              class="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Ex: Google"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              for="bookmark-url"
+              class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+              >Link (URL)</label
+            >
+            <input
+              type="text"
+              id="bookmark-url"
+              required
+              class="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Ex: google.com"
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              for="bookmark-description"
+              class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+              >Descrição</label
+            >
+            <input
+              type="text"
+              id="bookmark-description"
+              class="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="OPCIONAL: Breve descrição do site"
+            />
+          </div>
+
+          <div id="dialog-actions" class="flex justify-end space-x-3">
+            <button
+              aria-label="delete-bookmark"
+              type="button"
+              id="delete-bookmark-btn"
+              class="bg-red-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-red-700 transition-colors mr-auto hidden"
+            >
+              Excluir
+            </button>
+            <button
+              aria-label="cancel-bookmark"
+              type="button"
+              id="cancel-bookmark-btn"
+              class="bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors"
+            >
+              Cancelar
+            </button>
+            <button
+              aria-label="save-bookmark"
+              type="submit"
+              class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Salvar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Modal para confirmação e alertas -->
+    <div
+      id="alert-dialog"
+      class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 hidden"
+    >
+      <div
+        class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md mx-4 text-center"
+      >
+        <h3 id="alert-dialog-title" class="text-xl font-semibold mb-4">
+          Atenção
+        </h3>
+        <p
+          id="alert-dialog-message"
+          class="text-gray-600 dark:text-gray-300 mb-6"
+        ></p>
+        <div id="alert-dialog-buttons" class="flex justify-center space-x-4">
+          <!-- Botões serão inseridos aqui -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
